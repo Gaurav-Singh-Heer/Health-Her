@@ -37,29 +37,6 @@
 - **Authentication**: Secure user authentication using MongoDB.
 - **Mobile & Web Ready**: Works seamlessly on different devices.
 
-## Technologies and APIs Used
-
-The app is hosted with MongoDB Atlas cloud database and uses ExpressJS for the backend.
-
-- **Backend:** NodeJS, ExpressJS, MongoDB
-- **Frontend:** Bootstrap, jQuery
-- **APIs & Libraries:**
-  - [jsCalendar](https://gramthanos.github.io/jsCalendar/index.html) for period tracking
-  - [Spoonacular API](https://spoonacular.com/food-api/docs#Generate-Meal-Plan) for meal recommendations
-  - Custom chatbot integration for women’s health
-
-<!-- ## Demo
-
-Watch the walkthrough video here: **[Demo Link]()** -->
-
-![](healthandher-demo.gif)
-
-## Future Work
-
-- **Community Forum**: A space where users can connect with experts and each other.
-- **Real-time Health Alerts**: Notifications for medical checkups, self-examinations, and period care.
-- **Enhanced Chatbot**: AI-driven chatbot to provide personalized advice and resources.
-
 ## 🛠 Technologies and APIs Used  
 
 The app is hosted with **MongoDB Atlas** cloud database and uses **ExpressJS** for the backend.  
@@ -78,6 +55,19 @@ The app is hosted with **MongoDB Atlas** cloud database and uses **ExpressJS** f
 - [jsCalendar](https://gramthanos.github.io/jsCalendar/index.html) – For period tracking  
 - AI-powered chatbot – For personalized health support  
 
+
+
+<!-- ## Demo
+
+Watch the walkthrough video here: **[Demo Link]()** -->
+
+<!-- ![](healthandher-demo.gif) -->
+
+## Future Work
+
+- **Community Forum**: A space where users can connect with experts and each other.
+- **Real-time Health Alerts**: Notifications for medical checkups, self-examinations, and period care.
+- **Enhanced Chatbot**: AI-driven chatbot to provide personalized advice and resources.
 
 ## How To Use
 
