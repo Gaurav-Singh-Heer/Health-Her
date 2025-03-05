@@ -1,0 +1,224 @@
+<style>
+	/* Background Styling */
+main {
+    background: linear-gradient(135deg, #d9a7c7, #fffcdc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0; /* Adds top & bottom margin */
+    font-family: 'Roboto', sans-serif; /* Roboto Font */
+	width: 100%;
+	margin-top: 2rem;
+}
+
+/* Centered Signup Form */
+.signup-container {
+    width: 100%;
+    max-width: 600px; /* Wider form */
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    width: 100%; /* Makes it take full container width */
+}
+
+/* Form Styling */
+.form-group {
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    color: #000;
+    font-size: 16px;
+    transition: 0.3s;
+    font-family: 'Roboto', sans-serif; /* Ensuring Roboto font */
+}
+
+/* Neon Glow Effect */
+.form-control:focus {
+    outline: none;
+    border: 2px solid #ff69b4;
+    box-shadow: 0 0 10px #ff69b4;
+}
+
+/* Submit Button */
+.btn-glow {
+    background: linear-gradient(90deg, #ff6ec4, #7873f5);
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-container {
+        max-width: 90%; /* Adjust width for smaller screens */
+    }
+}
+
+/* Background Styling */
+main {
+    background: linear-gradient(135deg, #d9a7c7, #fffcdc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure it fits within the viewport */
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    padding: 20px 0; /* Reduce padding to save space */
+    margin: 0;
+}
+
+/* Centered Signup Form */
+.signup-container {
+    width: 100%;
+    max-width: 550px; /* Slightly smaller width for better fit */
+    max-height: 90vh; /* Limit height to prevent scrolling */
+    overflow-y: auto; /* Allows scrolling within if necessary */
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem; /* Reduce padding for more compact layout */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+}
+
+/* Form Styling */
+.form-group {
+    text-align: left;
+    margin-bottom: 12px; /* Reduce margin for better spacing */
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px; /* Slightly smaller text to save space */
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px; /* Reduce font size for compactness */
+}
+
+/* Submit Button */
+.btn-glow {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+</style>
+<%- include('partials/header.ejs') %>
+
+<main role="main" class="d-flex align-items-center justify-content-center vh-100">
+    <div class="signup-container">
+        <div class="glass-card" data-aos="fade-up">
+            <h2 class="text-center mb-4">Create Your Account</h2>
+            <%- include('partials/flash.ejs') %>
+            <form action="/user/signup" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required />
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="dob">Date</label>
+                    <input class="form-control" id="dob" name="dob" placeholder="YYYY/MM/DD" type="text" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label for="diet">Preferred Diet</label>
+                    <select class="form-control" id="diet" name="diet">
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="pescetarian">Pescetarian</option>
+                        <option value="whole30">Whole30</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Activeness Level</label>
+                    <br />
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="activeness" id="sedentary" value="sedentary" checked />
+                        <label class="form-check-label" for="sedentary">Sedentary</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="activeness" id="moderate" value="moderate" />
+                        <label class="form-check-label" for="moderate">Moderate</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="activeness" id="active" value="active" />
+                        <label class="form-check-label" for="active">Active</label>
+                    </div>
+                </div>
+                <div class="form-group text-center mt-3">
+                    <button class="btn btn-glow" type="submit">Sign Up</button>
+                </div>
+                <div class="text-center mt-3">
+                    <p class="small">Already have an account? <a href="/user/login" class="text-primary">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer.ejs') %>

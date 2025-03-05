@@ -1,0 +1,258 @@
+<%- include('partials/header.ejs') %>
+
+<style>
+    /* Background Styling */
+    main {
+        background: linear-gradient(135deg, #d9a7c7, #fffcdc);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 50px 0;
+        font-family: 'Roboto', sans-serif;
+		margin-top: 2rem;
+    }
+
+    .container-lg {
+        max-width: 900px;
+    }
+
+    /* Glassmorphism Card */
+    .dashboard-card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+        margin-bottom: 20px;
+    }
+
+    /* Section Heading */
+    .dashboard-title {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    /* Icon Styling */
+    .dashboard-feature {
+	    text-align: center;
+	    display: flex;
+	    align-items: center;
+	    flex-direction: column;
+	    gap: 1rem;
+	}
+
+    /* Button Glow */
+    .btn-glow {
+        background: linear-gradient(90deg, #ff6ec4, #7873f5);
+        color: white;
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        width: 100%;
+        transition: 0.3s;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        font-family: 'Roboto', sans-serif;
+        display: inline-block;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .btn-glow:hover {
+        box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+        transform: translateY(-2px);
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .dashboard-card {
+            padding: 1.5rem;
+        }
+    }
+
+    .ai-chat-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .chat-modal {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    .chat-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #chatHistory {
+        height: 200px;
+        overflow-y: auto;
+        width: 100%;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .close-btn {
+        background: #ff4d4d;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+</style>
+
+<main>
+    <div class="container-lg">
+        <div class="dashboard-card">
+            <h1 class="dashboard-title"><%=currentUser.name%>, Welcome to the Community!</h1>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-12 my-2 dashboard-feature">
+                    <i class="icon fas fa-utensils fa-4x"></i>
+                    <h3>Smart Personalized Meal Plans</h3>
+                    <p>Nutritious recipes curated just for you.</p>
+                    <a class="btn-glow" href="/meal">View Details &raquo;</a>
+                </div>
+
+                <div class="col-md-4 col-sm-12 my-2 dashboard-feature">
+                    <i class="icon fas fa-tint fa-4x"></i>
+                    <h3>Period Tracking Calendar</h3>
+                    <p>Listen to your body for abnormalities and possible diseases.</p>
+                    <a class="btn-glow" href="/period-tracking">View Details &raquo;</a>
+                </div>
+
+                <div class="col-md-4 col-sm-12 my-2 dashboard-feature">
+                    <i class="icon fas fa-heartbeat fa-4x"></i>
+                    <h3>Burn Calories & Get Fit</h3>
+                    <p>Exercise recommendations based on your lifestyle.</p>
+                    <a class="btn-glow" href="/fitness">View Details &raquo;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-chat-container">
+            <button class="btn-glow ai-chat-btn" onclick="openChat()">Talk To AI</button>
+        
+            <div class="chat-modal" id="chatModal">
+                <div class="chat-box">
+                    <h2>AI Women's Health Assistant</h2>
+                    <div id="chatHistory"></div>
+                    <textarea id="userInput" placeholder="Ask anything about women's health..."></textarea>
+                    <button class="btn-glow" onclick="sendMessage()">Send</button>
+                    <button class="close-btn" onclick="closeChat()">Close</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</main>
+
+<script>
+    function openChat() {
+        document.getElementById("chatModal").style.display = "block";
+    }
+    
+    function closeChat() {
+        document.getElementById("chatModal").style.display = "none";
+    }
+    
+    // async function sendMessage() {
+    //     let userMessage = document.getElementById("userInput").value;
+    //     let chatHistory = document.getElementById("chatHistory");
+    
+    //     if (!userMessage.trim()) return;
+    
+    //     chatHistory.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+    //     document.getElementById("userInput").value = "";
+    
+    //     // Send prompt to Gemini AI
+        
+    //     let aiResponse = await fetch("/ask-ai", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify({ message: userMessage })
+    //     });
+    
+    //     let responseText = await aiResponse.text();
+    //     chatHistory.innerHTML += `<p><strong>AI:</strong> ${responseText}</p>`;
+    //     chatHistory.scrollTop = chatHistory.scrollHeight;
+    // }
+
+    async function sendMessage() {
+        let userMessage = document.getElementById("userInput").value;
+        let chatHistory = document.getElementById("chatHistory");
+        
+        if (!userMessage.trim()) return;
+        
+        console.log("📤 Sending message:", userMessage); // Debugging
+        
+        chatHistory.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+        document.getElementById("userInput").value = "";
+        
+        try {
+            let aiResponse = await fetch("/ask-ai", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userMessage })
+            });
+        
+            console.log("🔄 Waiting for AI response...");
+            let responseText = await aiResponse.text();
+            console.log("🟢 AI Response:", responseText);
+        
+            chatHistory.innerHTML += `<p><strong>AI:</strong> ${responseText}</p>`;
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        } catch (error) {
+            console.error("❌ Error fetching AI response:", error);
+            chatHistory.innerHTML += `<p><strong>AI:</strong> Error fetching response</p>`;
+        }
+    }
+
+</script>
+    
+
+<%- include('partials/footer.ejs') %>

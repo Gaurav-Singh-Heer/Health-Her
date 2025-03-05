@@ -1,0 +1,153 @@
+<style>
+/* Center login form */
+main {
+    background-color: #f8f9fa;
+}
+
+/* Card Styling */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Input Styling */
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* Button */
+.btn {
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-dark:hover {
+    background: #343a40;
+    color: white;
+}
+/* Background Styling */
+main {
+    background: linear-gradient(135deg, #d9a7c7, #fffcdc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Centered Login Form */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form Styling */
+.form-group {
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    color: #000;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Neon Glow Effect */
+.form-control:focus {
+    outline: none;
+    border: 2px solid #ff69b4;
+    box-shadow: 0 0 10px #ff69b4;
+}
+
+/* Submit Button */
+.btn-glow {
+    background: linear-gradient(90deg, #ff6ec4, #7873f5);
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.btn-glow:hover {
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+<%- include('partials/header.ejs') %>
+
+<main role="main" class="d-flex align-items-center justify-content-center vh-100">
+    <div class="login-container">
+        <div class="glass-card" data-aos="fade-up">
+            <h2 class="text-center mb-4">Welcome Back!</h2>
+            <%- include('partials/flash.ejs') %>
+            <form action="/user/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required />
+                </div>
+                <div class="form-group text-center mt-3">
+                    <button class="btn btn-glow" type="submit">Login</button>
+                </div>
+                <div class="text-center mt-3">
+                    <p class="small">Don't have an account? <a href="/user/signup" class="text-primary">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer.ejs') %>

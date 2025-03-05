@@ -1,0 +1,28 @@
+<%- include('partials/_header.ejs') %>
+
+<body>
+    <%- include('partials/_body-header.ejs') %>
+
+    <section class="main padding-ver-lg">
+        <div class="main-container main-container-article">
+            <div class="article-content">
+                <% if (article) { %>
+                    <%- include(`partials/articles/${article}.ejs`) %>
+                <% } else { %>
+                    <p>Article not found.</p>
+                <% } %>
+                
+            </div>
+
+            <aside class="article-sidebar">
+                <%- include('partials/_nav.ejs') %>
+            </aside>
+
+            <div class="padding-top-sm text-end">
+                <h3><a href="/learn" aria-label="Back to learn link">&laquo; Go Back</a></h3>
+            </div>
+        </div>
+    </section>
+</body>
+
+<%- include('partials/_footer.ejs') %>

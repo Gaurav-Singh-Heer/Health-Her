@@ -1,0 +1,115 @@
+<%- include('partials/header.ejs') %>
+
+<main role="main">
+    <div class="container my-5">
+        <h1 class="h1 text-center fw-bold">Nourish & Flourish</h1>
+        <!-- <h2 class="dashboard-title text-center text-primary">Welcome to the Community! 🥑</h2> -->
+
+        <% Object.keys(smoothieDetails[diet] || {}).forEach(category => { %>
+            <h2 class="category-title mt-5 text-success"><%= category %></h2>
+            <div class="row">
+                <% Object.entries(smoothieDetails[diet][category]).forEach(([name, details]) => { %>
+                    <div class="col-md-6 col-lg-4 my-3">
+                        <div class="smoothie-card p-4 glassmorphism animate-card">
+                            <!-- Smoothie Image -->
+                            <div class="smoothie-image text-center">
+                                <img src="/images/<%= details.image %>" alt="<%= name %>" class="img-fluid rounded">
+                            </div>
+                            
+                            <!-- Smoothie Details -->
+                            <div class="smoothie-info mt-3">
+                                <h4 class="smoothie-name fw-bold text-dark"><%= name %></h4>
+                                <p><strong>Energy:</strong> <%= details.energy %></p>
+                                <p><strong>Carbs:</strong> <%= details.carbohydrates %></p>
+                                <p><strong>Proteins:</strong> <%= details.proteins %></p>
+                                <p><strong>Fats:</strong> <%= details.fats %></p>
+                                <p><strong>Fiber:</strong> <%= details.fiber %></p>
+        
+                                <!-- Ingredients -->
+                                <h5 class="mt-3">🛒 Ingredients:</h5>
+                                <ul class="ingredients-list">
+                                    <% details.ingredients.forEach(ingredient => { %>
+                                        <li>✅ <%= ingredient %></li>
+                                    <% }); %>
+                                </ul>
+        
+                                <!-- Instructions -->
+                                <h5 class="mt-3">📌 Instructions:</h5>
+                                <p class="instructions text-muted"><%= details.instructions %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% }); %>
+    </div>
+</main>
+
+<%- include('partials/footer.ejs') %>
+
+<style>
+    /* Smooth Fade-in Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Smooth Scale-up Animation for Cards */
+    @keyframes scaleUp {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Glassmorphism Styling */
+    .glassmorphism {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .glassmorphism:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Animate cards on load */
+    .animate-card {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-in-out forwards;
+    }
+
+    /* Delay animation for each card */
+    .animate-card:nth-child(1) { animation-delay: 0.2s; }
+    .animate-card:nth-child(2) { animation-delay: 0.4s; }
+    .animate-card:nth-child(3) { animation-delay: 0.6s; }
+
+    /* Scale-up effect for Nutrient Chart */
+    .chart-container {
+        animation: scaleUp 1s ease-in-out 0.5s forwards;
+        opacity: 0;
+    }
+</style>
+
+<script>
+    // Wait for the page to load before applying animations
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".animate-card").forEach(card => {
+            card.style.opacity = "1";
+        });
+    });
+</script>

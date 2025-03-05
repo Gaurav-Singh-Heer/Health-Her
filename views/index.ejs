@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry To Eat</title>
+    <!-- for icons  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <!-- for swiper slider  -->
+    <link rel="stylesheet" href="/stylesheets/swiper-bundle.min.css">
+
+    <!-- fancy box  -->
+    <link rel="stylesheet" href="/stylesheets/jquery.fancybox.min.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        .main-banner {
+            position: relative;
+            background-image: url(/images/menu-bg.jpg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .main-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Black overlay with 0.3 opacity */
+        }
+        .banner-text p, .banner-img-text p {
+    background: rgba(255, 255, 255, 0.8); /* White background with transparency */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
+
+    </style>
+</head>
+
+<body class="body-fixed">
+    <!-- start of header  -->
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header-logo">
+                        <a href="/"><img src="/images/pink-cosmos.png" width="90" height="36" alt="Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="main-navigation">
+                        <button class="menu-toggle"><span></span><span></span></button>
+                        <nav class="header-menu">
+                            <ul class="menu food-nav-menu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#team">Our Team</a></li>
+                                <li><a href="#testimonials">Testimonials</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header-right">
+                            <form action="#" class="header-search-form for-des">
+                                <input type="search" class="form-input" placeholder="Search Here...">
+                                <button type="submit">
+                                    <i class="uil uil-search"></i>
+                                </button>
+                            </form>
+                            <a href="/user/login" class="header-btn">
+                                <i class="uil uil-user-md" title="SignIn / SignUp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header ends  -->
+
+    <div id="viewport">
+		<div id="js-scroll-content">
+
+			<!--Main Banner Starts-->
+			<section class="main-banner" id="home" style="background-image: url(/images/menu-bg.jpg); background-size: contain;">
+				<div class="js-parallax-scene">
+					<div class="banner-shape-1 w-100" data-depth="0.30">
+						<img src="/images/berry.png" alt="">
+					</div>
+					<div class="banner-shape-2 w-100" data-depth="0.25">
+						<img src="/images/leaf.png" alt="">
+					</div>
+				</div>
+				<div class="sec-wp">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="banner-text">
+									<h1 class="h1-title">
+										Empowering Women's <span>Health & Wellness</span>
+									</h1>
+									<p>Your journey to holistic well-being starts here. Prioritize your health with nutritious choices, expert guidance, and a community that cares.</p>
+									<div class="banner-btn mt-4">
+										<a href="/user/login" class="sec-btn">Explore Now</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="banner-img-wp">
+									<div class="banner-img"
+										style="background-image: url(/images/main-b.jpg); background-size: contain;">
+									</div>
+								</div>
+								<div class="banner-img-text mt-4 m-auto">
+									<h5 class="h5-title">Nourish & Flourish</h5>
+									<p>Discover the power of balanced nutrition, fitness, and mindfulness for a healthier you.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+			<!-- Main Banner Ends-->
+			<!-- About Section Starts-->
+		
+			<section class="about-sec section" id="about" style="background-image: url(/images/menu-bg.png);">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="sec-title text-center mb-5">
+								<p class="sec-sub-title mb-3">About Us</p>
+								<h2 class="h2-title">Dedicated to <span>Women's Health</span></h2>
+								<div class="sec-title-shape mb-4">
+									<img src="/images/title-shape.svg" alt="">
+								</div>
+								<p>At Health&Her, we believe that every woman deserves to feel her best. Our platform is designed to provide expert-backed health tips, nutritious meal plans, and a supportive community focused on overall wellness. Whether it’s reproductive health, mental well-being, or fitness, we’re here to guide you every step of the way.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+            <!-- About Section Ends-->
+            <!-- Our Team Section Starts-->
+            <section class="our-team section" id="team" style="background-image: url(/images/menu-bg.png);">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <p class="sec-sub-title mb-3">Our Team</p>
+                                    <h2 class="h2-title">Meet our Experts</h2>
+                                    <div class="sec-title-shape mb-4">
+                                        <img src="/images/title-shape.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row team-slider">
+                            <div class="swiper-wrapper">
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(/images/testimonials/doc1.jpg);"
+                                            class="team-img back-img"></div>
+                                        <h3 class="h3-title">Nilay Hirpara</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(/images/testimonials/doc2.jpg);"
+                                            class="team-img back-img"></div>
+                                        <h3 class="h3-title">Ravi Kumawat</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-youtube"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(/images/testimonials/doc3.jpg);"
+                                            class="team-img back-img"></div>
+                                        <h3 class="h3-title">Navnit Kumar</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-youtube"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(/images/testimonials/doc4.jpg);"
+                                            class="team-img back-img"></div>
+                                        <h3 class="h3-title">Pranav Badgal</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-youtube"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(/images/testimonials/doc5.jpg);"
+                                            class="team-img back-img"></div>
+                                        <h3 class="h3-title">Priyotosh Dey</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+                                                <li><a href="#"><i class="uil uil-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-wp">
+                                <div class="swiper-button-prev swiper-button">
+                                    <i class="uil uil-angle-left"></i>
+                                </div>
+                                <div class="swiper-button-next swiper-button">
+                                    <i class="uil uil-angle-right"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Team Section Ends-->
+            <!--Testimonials section Starts-->
+
+            <section class="testimonials section bg-light" id="testimonials"
+    style="background-image: url(/images/menu-bg.png);">
+    <div class="sec-wp">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sec-title text-center mb-5">
+                        <p class="sec-sub-title mb-3">What they say</p>
+                        <h2 class="h2-title">What our customers <span>say about us</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <!-- Move the sec-title-shape parallel to reviews -->
+                <div class="col-lg-5 d-none d-lg-block text-center">
+                    <div class="sec-title-shape" style="margin-left: 20px;">
+                        <img src="/images/top.png" alt="" style="width: 40rem; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="testimonials-box">
+                                <div class="testimonial-box-top">
+                                    <div class="testimonials-box-img back-img"
+                                        style="background-image: url(/images/testimonials/doc1.jpg);">
+                                    </div>
+                                    <div class="star-rating-wp">
+                                        <div class="star-rating">
+                                            <span class="star-rating__fill" style="width:85%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonials-box-text">
+                                    <h3 class="h3-title">Nilay Hirpara</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, quisquam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="testimonials-box">
+                                <div class="testimonial-box-top">
+                                    <div class="testimonials-box-img back-img"
+                                        style="background-image: url(/images/testimonials/doc2.jpg);">
+                                    </div>
+                                    <div class="star-rating-wp">
+                                        <div class="star-rating">
+                                            <span class="star-rating__fill" style="width:80%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonials-box-text">
+                                    <h3 class="h3-title">Ravi Kumawat</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, quisquam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="testimonials-box">
+                                <div class="testimonial-box-top">
+                                    <div class="testimonials-box-img back-img"
+                                        style="background-image: url(/images/testimonials/doc3.jpg);">
+                                    </div>
+                                    <div class="star-rating-wp">
+                                        <div class="star-rating">
+                                            <span class="star-rating__fill" style="width:89%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonials-box-text">
+                                    <h3 class="h3-title">Navnit Kumar</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, quisquam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="testimonials-box">
+                                <div class="testimonial-box-top">
+                                    <div class="testimonials-box-img back-img"
+                                        style="background-image: url(/images/testimonials/doc4.jpg);">
+                                    </div>
+                                    <div class="star-rating-wp">
+                                        <div class="star-rating">
+                                            <span class="star-rating__fill" style="width:100%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonials-box-text">
+                                    <h3 class="h3-title">Somyadeep Bhowmik</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, quisquam.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End of Row -->
+        </div>
+    </div>
+</section>
+
+
+            <!-- footer starts  -->
+            <footer class="footer-container" id="contact">
+                <div class="footer-section logo">
+                  <h2>Women's Health</h2>
+                  <p>Empowering women for a healthier future</p>
+                </div>
+                
+                <div class="footer-section links">
+                  <h3>Quick Links</h3>
+                  <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQs</a></li>
+                  </ul>
+                </div>
+                
+                <div class="footer-section resources">
+                  <h3>Resources</h3>
+                  <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                  </ul>
+                </div>
+                
+                <div class="footer-section hours">
+                  <h3>Clinic Hours</h3>
+                  <p>Mon - Fri: 8 AM - 6 PM</p>
+                  <p>Sat - Sun: 10 AM - 4 PM</p>
+                </div>
+                
+                <div class="footer-section social">
+                  <h3>Follow Us</h3>
+                  <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+                </div>
+            </footer>
+              
+            <style>
+                .footer-container {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-around;
+                  background: #f8f9fa;
+                  padding: 20px;
+                  text-align: center;
+                }
+                .footer-section {
+                  flex: 1;
+                  min-width: 200px;
+                  margin: 10px;
+                }
+                .footer-section h3 {
+                  color: #333;
+                }
+                .footer-section ul {
+                  list-style: none;
+                  padding: 0;
+                }
+                .footer-section ul li {
+                  margin: 5px 0;
+                }
+                .footer-section ul li a {
+                  text-decoration: none;
+                  color: #007bff;
+                }
+                .social-icons a {
+                  margin: 0 10px;
+                  font-size: 20px;
+                  color: #007bff;
+                }
+            </style>
+              
+                <!-- Women's Health Footer Starts -->
+            
+                <div class="bottom-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div class="copyright-text">
+                                    <p>&copy; 2025 Women's Health Center. All Rights Reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- jquery  -->
+    <script src="/javascripts/jquery-3.5.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+
+    <!-- fontawesome  -->
+    <script src="/javascripts/font-awesome.min.js"></script>
+
+    <!-- swiper slider  -->
+    <script src="/javascripts/swiper-bundle.min.js"></script>
+
+    <!-- mixitup -- filter  -->
+    <script src="/javascripts/jquery.mixitup.min.js"></script>
+
+    <!-- fancy box  -->
+    <script src="/javascripts/query.fancybox.min.js"></script>
+
+    <!-- parallax  -->
+    <script src="/javascripts/parallax.min.js"></script>
+
+    <!-- gsap  -->
+    <script src="/javascripts/gsap.min.js"></script>
+
+    <!-- scroll trigger  -->
+    <script src="/javascripts/ScrollTrigger.min.js"></script>
+    <!-- scroll to plugin  -->
+    <script src="/javascripts/ScrollToPlugin.min.js"></script>
+    <!-- rellax  -->
+    <!-- <script src="assets/js/rellax.min.js"></script> -->
+    <!-- <script src="assets/js/rellax-custom.js"></script> -->
+    <!-- smooth scroll  -->
+    <script src="/javascripts/smooth-scroll.js"></script>
+    <!-- custom js  -->
+    <script src="/javascripts/main.js"></script>
+
+    </div>
+    </div>
+</body>
+
+</html>
