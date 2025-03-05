@@ -142,6 +142,117 @@
         border-radius: 5px;
         cursor: pointer;
     }
+    /* AI Chat Container */
+    .ai-chat-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* AI Chat Modal */
+    .chat-modal {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 450px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    /* Chat Header */
+    .chat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        font-size: 18px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Chat Box */
+    .chat-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 300px;
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    /* Chat Messages */
+    #chatHistory {
+        height: 250px;
+        overflow-y: auto;
+        width: 100%;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* User and AI Message Styling */
+    .user-message {
+        text-align: right;
+        background: #7873f5;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 12px;
+        margin: 5px 0;
+        display: inline-block;
+        max-width: 80%;
+    }
+
+    .ai-message {
+        text-align: left;
+        background: #ff6ec4;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 12px;
+        margin: 5px 0;
+        display: inline-block;
+        max-width: 80%;
+    }
+
+    /* Chat Input */
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        resize: none;
+        font-size: 14px;
+    }
+
+    /* Close Button */
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff4d4d;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    /* Chat Open Button */
+    .ai-chat-btn {
+        font-size: 18px;
+        padding: 14px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
 
 </style>
 
@@ -161,7 +272,7 @@
                 <div class="col-md-4 col-sm-12 my-2 dashboard-feature">
                     <i class="icon fas fa-tint fa-4x"></i>
                     <h3>Period Tracking Calendar</h3>
-                    <p>Listen to your body for abnormalities and possible diseases.</p>
+                    <p>Listen to your body for abnormalities and diseases.</p>
                     <a class="btn-glow" href="/period-tracking">View Details &raquo;</a>
                 </div>
 
@@ -225,25 +336,25 @@
     async function sendMessage() {
         let userMessage = document.getElementById("userInput").value;
         let chatHistory = document.getElementById("chatHistory");
-        
+
         if (!userMessage.trim()) return;
-        
+
         console.log("📤 Sending message:", userMessage); // Debugging
-        
+
         chatHistory.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
         document.getElementById("userInput").value = "";
-        
+
         try {
             let aiResponse = await fetch("/ask-ai", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: userMessage })
             });
-        
+
             console.log("🔄 Waiting for AI response...");
             let responseText = await aiResponse.text();
             console.log("🟢 AI Response:", responseText);
-        
+
             chatHistory.innerHTML += `<p><strong>AI:</strong> ${responseText}</p>`;
             chatHistory.scrollTop = chatHistory.scrollHeight;
         } catch (error) {
