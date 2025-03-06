@@ -51,6 +51,86 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/quiz', (req,res)=>{
+	res.render('quiz');
+})
+
+app.post("/result", (req, res) => {
+    let answers = req.body;
+    let pcosScore = 0, menopauseScore = 0, pregnancyScore = 0, thyroidScore = 0, heavyFlowScore = 0, lightFlowScore = 0;
+
+    // Weighted Scoring Logic
+    const weights = {
+        age: { under40: 3, "40-45": 2, "45plus": 1 },
+        periods: { irregular_long_term: 3, recently_irregular: 2, stopped: 5 },
+        flow: { heavy: 4, normal: 2, light: 4 },
+        missed_period: { yes: 5, no: 0 },
+        weight: { unexplained_gain: 3, gradual_gain: 2, rapid_gain: 4, weight_loss: 5 },
+        sugar_cravings: { yes: 3, no: 0 },
+        hair_growth: { yes: 3, no: 0 },
+        high_androgens: { yes: 4, no: 0 },
+        acne: { yes: 3, no: 0 },
+        hair_loss: { yes: 3, no: 0 },
+        vaginal_dryness: { yes: 4, no: 0 },
+        fatigue: { yes: 3, no: 0 },
+        cold_sensitivity: { yes: 4, no: 0 },
+        hotflashes: { yes: 4, no: 0 },
+        mood: { yes: 3, no: 0 },
+        morning_sickness: { yes: 5, no: 0 },
+        tender_breasts: { yes: 5, no: 0 },
+        frequent_urination: { yes: 4, no: 0 },
+        sleep_issues: { yes: 3, no: 0 },
+        joint_pain: { yes: 3, no: 0 }
+    };
+
+    // Apply scoring based on answers
+    for (let key in answers) {
+        if (weights[key]) {
+            let value = answers[key];
+            if (weights[key][value]) {
+                if (["hair_growth", "high_androgens", "acne", "hair_loss", "sugar_cravings"].includes(key)) {
+                    pcosScore += weights[key][value];
+                }
+                if (["hotflashes", "vaginal_dryness", "joint_pain", "sleep_issues"].includes(key)) {
+                    menopauseScore += weights[key][value];
+                }
+                if (["morning_sickness", "tender_breasts", "frequent_urination", "missed_period"].includes(key)) {
+                    pregnancyScore += weights[key][value];
+                }
+                if (["cold_sensitivity", "fatigue", "weight"].includes(key) && value === "weight_loss") {
+                    thyroidScore += weights[key][value];
+                }
+                if (key === "flow" && value === "heavy") {
+                    heavyFlowScore += weights[key][value];
+                }
+                if (key === "flow" && value === "light") {
+                    lightFlowScore += weights[key][value];
+                }
+            }
+        }
+    }
+
+    // Calculate likelihood
+    let totalScore = pcosScore + menopauseScore + pregnancyScore + thyroidScore + heavyFlowScore + lightFlowScore;
+    let pcosLikelihood = ((pcosScore / totalScore) * 100).toFixed(1);
+    let menopauseLikelihood = ((menopauseScore / totalScore) * 100).toFixed(1);
+    let pregnancyLikelihood = ((pregnancyScore / totalScore) * 100).toFixed(1);
+    let thyroidLikelihood = ((thyroidScore / totalScore) * 100).toFixed(1);
+    let heavyFlowLikelihood = ((heavyFlowScore / totalScore) * 100).toFixed(1);
+    let lightFlowLikelihood = ((lightFlowScore / totalScore) * 100).toFixed(1);
+
+    let result = `
+    PCOS Likelihood: ${pcosLikelihood}%,
+    Menopause Likelihood: ${menopauseLikelihood}%,
+    Pregnancy Likelihood: ${pregnancyLikelihood}%,
+    Thyroid Dysfunction Likelihood: ${thyroidLikelihood}%,
+    Heavy Flow Likelihood: ${heavyFlowLikelihood}%,
+    Light Flow Likelihood: ${lightFlowLikelihood}%
+    `;    
+
+    res.render("result", { result });
+});
+
 app.post('/ask-ai', (req, res) => {
     console.log("🔵 /ask-ai route hit!");
     const userMessage = req.body.message?.trim().toLowerCase();
