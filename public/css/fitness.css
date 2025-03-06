@@ -1,0 +1,147 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+/* Navigation Menu */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background: linear-gradient(90deg, #ff3b5d, #ff758c); */
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffe8eb;
+    text-decoration: underline;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Section Cards */
+section {
+    background: linear-gradient(145deg, #fff1f3, #ffd6db);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+/* Hover Effect */
+section:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 6px 20px rgba(255, 100, 127, 0.4);
+    background: linear-gradient(145deg, #ffccd2, #ff99a6);
+}
+
+/* Section Titles */
+h2 {
+    color: #ff3b5d;
+    font-size: 22px;
+}
+
+/* Improved Spacing for Text and Videos */
+ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 15px; /* Adds space between list items */
+}
+
+p {
+    margin-bottom: 20px; /* Adds space before videos */
+}
+
+/* Responsive YouTube Videos */
+iframe {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    margin-top: 20px; /* Space between text and video */
+}
+
+/* Video Hover Effect */
+iframe:hover {
+    transform: scale(1.05);
+}
+
+/* CTA Buttons */
+button {
+    background: linear-gradient(90deg, #ff3b5d, #ff758c);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0px 4px 12px rgba(255, 100, 127, 0.4);
+    width: 90%;
+}
+
+button:hover {
+    background: #ff2a4b;
+    transform: scale(1.05);
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        width: 90%;
+    }
+}
