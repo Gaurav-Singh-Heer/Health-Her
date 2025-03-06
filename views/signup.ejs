@@ -221,4 +221,26 @@ label {
     </div>
 </main>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("form").addEventListener("submit", function (event) {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!emailPattern.test(email)) {
+                alert("Invalid email! Must contain '@' and a valid domain.");
+                event.preventDefault();
+            } 
+            
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.");
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+
+
 <%- include('partials/footer.ejs') %>
