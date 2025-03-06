@@ -9,7 +9,7 @@
 </h1>
 <h3 align="center">
   A complete health companion for women.
-</h3>b
+</h3>
 
 <h4 align="center">Track your periods, get personalized nutrition, and chat with experts about PCOS, menopause, and more.</h4>
 
