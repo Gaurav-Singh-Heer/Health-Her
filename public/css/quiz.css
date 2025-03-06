@@ -1,0 +1,164 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  text-align: center;
+  padding: 20px;
+  color: #333;
+
+  /* Background Image for the Entire Page */
+  background-image: url("bgphoto.jpg"); /* Use the correct relative path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.quiz-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #e91e63; /* Soft pink */
+    text-align: center;
+    position: absolute;
+    top: 12rem;
+    left: 11rem;
+}
+
+.quiz-body {
+  /* Use the correct relative path for the background image */
+  /* background-image: url("/images/female-2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+}
+
+.female-2-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* height: 50px; */
+  /* width: 50px; */
+}
+
+.doctor-3-img {
+  /* position: absolute; */
+  top: 0;
+  right: 0;
+  /* height: 50px; */
+  /* width: 50px; */
+}
+
+/* Quiz Container */
+form {
+  /* background-image: url('form-bg.jpg');  */
+  /* Use a different image for the form */
+  /* background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+  /* background-image: url("/images/female-2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+
+  /* background-color: transparent; Added opacity to the background color */
+
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Headings */
+h2 {
+  color: #222;
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  display: block;
+  margin: 20px 0 8px;
+  font-size: 18px;
+}
+
+/* Radio Buttons */
+input[type="radio"] {
+  margin: 10px;
+  transform: scale(1.3);
+  accent-color: #e91e63;
+}
+
+/* Submit Button */
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 100%;
+  width: fit-content;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #9b1240;
+  transform: scale(1.03);
+}
+
+/* Improve Desktop Experience */
+@media (min-width: 1024px) {
+  form {
+    max-width: 800px;
+    padding: 40px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  label {
+    font-size: 20px;
+  }
+  button {
+    font-size: 20px;
+    padding: 16px 28px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    width: 90%;
+    padding: 20px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+/* #result {
+    white-space: pre-line;
+} */

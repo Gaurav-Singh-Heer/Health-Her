@@ -1,24 +1,38 @@
-html,
-body {
-	height: 100%;
+/* General Styling */
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
-	color: #222;
-	padding-bottom: 16px;
+    color: #222;
+    /* background-color: #f8f9fa; */
+	 /* Light background for a modern look */
+    font-family: 'Poppins', sans-serif; /* More elegant font */
+    padding-bottom: 16px;
 }
 
+/* Landing Page */
 .landing {
-	background-color: #ef9091;
-	color: #222;
+    background: linear-gradient(135deg, #ef9091 30%, #f7b1a2); /* Soft gradient */
+    color: #222;
 }
 
+/* Navbar */
 .navbar {
-	background-color: #ef9091;
+    background-color: #ef9091;
+    padding: 10px 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .navbar .nav-item a.nav-link {
-	color: white;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.navbar .nav-item a.nav-link:hover {
+    color: #ffeeba;
 }
 
 .navbar-brand {
@@ -26,127 +40,241 @@ body {
 }
 
 .navbar-brand img {
-    max-height:28;
-	width: auto;
+    max-height: 28px;
+    width: auto;
 }
 
+/* Main Content */
 main {
-	padding-top: 56px;
+    padding-top: 56px;
+	
 }
 
+/* Headings */
 h1 {
-	text-align: center;
-	color: #4e8d7c;
+    text-align: center;
+    color: #4e8d7c;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Centered Elements */
 .center {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
+/* Landing Page Title */
 .landing-title {
-	text-align: left;
-	color: #314e52;
-	margin-bottom: 2rem;
+    text-align: left;
+    color: #314e52;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
+/* Carousel */
 .carousel {
-	margin-bottom: 4rem;
+    margin-bottom: 4rem;
 }
 
 .carousel-caption {
-	bottom: 3rem;
-	z-index: 10;
+    bottom: 3rem;
+    z-index: 10;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-item {
-	height: 32rem;
-}
-.carousel-item > img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	min-width: 100%;
-	height: 32rem;
+    height: 32rem;
 }
 
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+    object-fit: cover;
+}
+
+/* Marketing Section */
 .marketing .col-lg-4 {
-	margin-bottom: 1.5rem;
-	text-align: center;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .marketing h2 {
-	font-weight: 400;
+    font-weight: 500;
+    color: #333;
 }
 
 .marketing .col-lg-4 p {
-	margin-right: 0.75rem;
-	margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+    font-size: 1.1rem;
 }
 
+/* Featurette Section */
 .featurette-divider {
-	margin: 5rem 0;
+    margin: 5rem 0;
 }
 
 .featurette-heading {
-	font-weight: 300;
-	line-height: 1;
-	letter-spacing: -0.05rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.05rem;
+    color: #444;
 }
 
+/* Disease Info Block */
 .disease {
-	display: inline-block;
-	padding: 3rem;
-	text-emphasis: 1;
-	text-align: left;
-	text-decoration-color: darkolivegreen;
+    display: inline-block;
+    padding: 3rem;
+    text-align: left;
+    text-decoration-color: darkolivegreen;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
 }
 
+/* Icons */
 .icon {
-	color: #ef8172;
-	margin-bottom: 1rem;
+    color: #ef8172;
+    margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
+/* Dashboard Feature Section */
 .dashboard-feature {
-	text-align: center;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
+/* Card Styling */
 .card {
-	margin-top: 0.7rem;
+    margin-top: 0.7rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.iframe-container{
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Iframe Container */
+.iframe-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; 
+    padding-bottom: 56.25%;
     height: 0;
 }
 
-.iframe-container iframe{
-    position: relative;
-    width: 18rem;
-    height: 14rem;
-    margin-bottom: auto;
-    padding: 1rem;
+.iframe-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
+/* Flow Indicator */
 .low-flow,
 .heavy-flow {
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .low-flow {
-	background-color: #ffb400;
+    background-color: #ffb400;
 }
 
 .heavy-flow {
-	background-color: #f6511d;
+    background-color: #f6511d;
 }
+
+.calendar-img {
+	position: absolute;
+	height: auto;
+	left: 0;
+	top: 0;
+	font-weight: bold;
+	z-index: -100;
+}
+
+.heading-1 {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #be3c2b;
+	z-index: 10;
+}
+
+.btn-primary {
+	background-color: #ef8172;
+	border: #ef8172;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: fit-content;
+}
+
+.btn-primary:hover {
+	background-color: #be3c2b;
+	border: #be3c2b;
+}
+
+.contain-2 {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.calendar-img-2 {
+	position: absolute;
+	height: auto;
+	top: 25rem;
+	right: 110px;
+	bottom:-150px;
+	font-weight: bold;
+	z-index: -100;
+	height: 25rem;
+	width: 25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .carousel-item {
+        height: 24rem;
+    }
+    
+    .carousel-item > img {
+        height: 24rem;
+    }
+    
+    .landing-title {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    
+    .featurette-heading {
+        font-size: 1.5rem;
+    }
+
+	
+
+}
+
