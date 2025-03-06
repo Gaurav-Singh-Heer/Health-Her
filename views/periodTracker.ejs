@@ -1,76 +1,161 @@
 <%- include('partials/header.ejs') %>
 
-<main role="main">
-	<div class="container my-5">
-		<h1>Period Tracker</h1>
-		<p class="subtext text-center mb-5">Track your period by clicking on the calendar dates.</p>
+<main role="main relative">
+  <img src="images/calendar-2.png" alt="" class="calendar-img" />
+  <img src="images/calendar.png" alt="" class="calendar-img-2">
+  <div class="container my-5">
+    <h1 class="heading-1">Your Next Period Date ?</h1>
+    <p class="subtext text-center mb-5">
+      Track your period by clicking on the calendar dates.
+    </p>
 
-		<div class="row">
-			<div class="col-lg-4 offset-lg-2 col-sm-12">
-				<div class="d-flex align-items-center flex-column">
-					<div class="d-flex justify-content-center">
-						<div class="mr-5">Normal flow <span class="low-flow"></span></div>
-						<div>Heavy flow <span class="heavy-flow"></span></div>
-					</div>
-					<div id="my-calendar" class="custom-color"></div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-sm-12">
-				<div class="d-flex flex-column align-items-center justify-content-center">
-					<div class="product-recommendation card period-tracker-card">
-						<div class="card-body period-due">
-							<h5 class="card-title">Stay one step ahead!</h5>
-							<p class="card-text">
-								Your next period is expected to be on <span id="period-due-date"></span>. Check out these products.
-							</p>
-							<a
-								href="https://www.bing.com/shop?q=whisper&qs=n&form=SHOPSB&sp=-1&pq=whisp&sc=8-5&sk=&cvid=D359F10DC824461F81550880A076CD16"
-								target="_blank"
-								class="btn btn-primary"
-							>
-								Products
-							</a>
-						</div>
-					</div>
-					<div class="flow-warning card bg-warning period-tracker-card">
-						<div class="card-body period-due">
-							<h5 class="card-title">Warning</h5>
-							<p class="card-text">
-								<%=currentUser.name%>, you have recorded more than 5 days of heavy flow in the last 2 months. You may
-								want to get tested for menorrhagia, fibroids and anemia!
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+      <div class="col-lg-4 offset-lg-2 col-sm-12">
+        <div class="d-flex align-items-center flex-column calender-wala-div">
+          <div class="d-flex justify-content-center">
+            <!-- <div class="mr-5">Normal flow <span class="low-flow"></span></div> -->
+            <!-- <div>Heavy flow <span class="heavy-flow"></span></div> -->
+          </div>
+          <!-- Calendar -->
+          <div id="my-calendar" class="custom-color"></div>
+          <!-- Display selected date and predicted date -->
+          <!-- <p>Selected Date: <span id="selected-date">None</span></p>
+					<p>Predicted Next Period: <span id="period-due-date">None</span></p> -->
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+        >
+          <div class="product-recommendation card period-tracker-card">
+            <div class="card-body period-due">
+              <h5 class="card-title">Stay one step ahead!</h5>
+              <p class="card-text" id="periods-due-date">
+                <!-- Your next period is expected to be on <span id="periods-due-date"></span>. Check out these products. -->
+                Enter Your Periods Start date on calendar..
+              </p>
+              <a
+                href="https://www.google.com/search?q=sanitary+products&client=firefox-b-d&sca_esv=aebc663c531febdd&biw=1366&bih=607&tbm=shop&sxsrf=AHTn8zpCUofSr8uDsKCT415QoBtBoMG0NA%3A1741209421331&ei=Tb_IZ9fjE-qXseMP3qeKCQ&oq=sanitary+products+&gs_lp=Egtwcm9kdWN0cy1jYyISc2FuaXRhcnkgcHJvZHVjdHMgKgIIADIKEAAYgAQYQxiKBTIIEAAYFhgKGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yCBAAGBYYChgeSMggUKIMWI8fcAB4AJABAJgBwgGgAZEHqgEDMC41uAEDyAEA-AEBmAIFoAKSCMICBxAjGLQEGCfCAgUQABiABJgDAIgGAZIHBTAuMi4zoAeEHQ&sclient=products-cc"
+                target="_blank"
+                class="btn btn-primary"
+              >
+                <div >Products</div> 
+                <div style="display: flex; align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#882e13"><path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/></svg></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contain-2 text-center flex ">
+    <h1 class="heading-1">Missing Your Period?</h1>
+    <a href="/quiz" class="btn btn-primary">Figure out why?</a>
+  </div>
 </main>
-<div class="modal" id="periodModal" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h6 class="modal-title">Add Period Flow</h6>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<h3>Period Flow:</h3>
-				<div class="d-flex justify-content-center">
-					<button type="button" class="btn flow-btn mr-2" style="background-color: #ffb400; color: white" value="low">
-						Normal
-					</button>
-					<button type="button" class="btn flow-btn" style="background-color: #f6511d; color: white" value="high">
-						Heavy
-					</button>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
-</div>
 
 <%- include('partials/footer.ejs') %>
+
+<!-- Add jQuery, Moment.js, and jsCalendar -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-calendar/jsCalendar.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/js-calendar/jsCalendar.css"
+/>
+
+<!-- recent script  -->
+<script>
+  $(document).ready(function () {
+    var today = moment(); // Get today's date
+    var selectedDate = null;
+    var selectedDate1 = null;
+    var selectedDate2 = null;
+    var selectedDate3 = null;
+    var calendarDiv = document.querySelector("#my-calendar");
+    var myCalendar = jsCalendar.new(calendarDiv);
+
+    // calendarDiv.style.background = "rgba(255, 255, 255, 0.7)";
+    // calendarDiv.style.padding = "20px";
+    // calendarDiv.style.borderRadius = "10px";
+
+    
+
+    var today = moment(); 
+    var minDate = moment().subtract(29, "days"); // 29 days before today
+
+    var minDate1 = moment().subtract(90, "days");
+    var minDate2 = moment().subtract(60, "days");
+    var minDate3 = moment().subtract(30, "days");
+
+    // Function to disable dates in the calendar
+    function disableInvalidDates() {
+      var days = calendarDiv.querySelectorAll(".jsCalendar-day");
+      days.forEach(function (day) {
+        var dateAttr = day.getAttribute("data-date");
+        var dateMoment = moment(dateAttr, "YYYY-MM-DD");
+
+        if (dateMoment.isAfter(today) || dateMoment.isBefore(minDate)) {
+          day.classList.add("jsCalendar-disabled");
+        }
+      });
+    }
+
+    // Run after the calendar is ready
+    setTimeout(disableInvalidDates, 1);
+
+    // When a date is clicked
+    myCalendar.onDateClick(function (event, date) {
+      var dateMoment = moment(date);
+
+      if (dateMoment.isAfter(today) || dateMoment.isBefore(minDate)) {
+        alert("Select date atleast within the last 29 days");
+        return; // Prevent selecting out-of-range dates
+      }
+
+      selectedDate = dateMoment.format("YYYY-MM-DD"); // Store selected date
+      var previousDate = dateMoment.clone().add(21, "days").format("LL");
+      var nextDate = dateMoment.clone().add(35, "days").format("LL"); // Predict next period
+
+      var content = `Your next period is <span style="font-weight:bold; color:green;">EXPECTED</span>
+ to be in between <span style="font-weight:bold; color:#ef8172;">${previousDate}</span> to <span style="font-weight:bold; color:#ef8172;"> ${
+        nextDate + "."
+      }</span> Check out these products.`;
+      $("#periods-due-date").html(content);
+
+      myCalendar.clearselect(); // Remove previous selections
+      myCalendar.select(date); // Highlight the newly selected date
+    });
+  });
+</script>
+
+<!-- <script>
+  $(document).ready(function () {
+    var today = moment(); // Get today's date
+
+    
+
+    // Debugging: Check if calendars are initialized
+    console.log("Calendars initialized:", lastPeriod1, lastPeriod2, lastPeriod3);
+  });
+</script> -->
+
+<style>
+  /* Custom style for selected date */
+  .jsCalendar .jsCalendar-selected {
+    background-color: #ff6b6b !important;
+    color: white !important;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+
+  .period-due {
+    width: 100% !important;
+  }
+
+  .period-tracker-card {
+    width: 100% !important;
+  }
+</style>

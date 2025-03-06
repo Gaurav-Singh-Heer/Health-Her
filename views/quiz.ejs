@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS vs Menopause Quiz</title>
+    <link rel="stylesheet" href="/css/quiz.css">
+</head>
+<body class="quiz-body relative">
+    <h2 style="position: absolute;" class="quiz-title">PCOS vs Menopause Questionnaire</h2>
+    <!-- <img src="/images/female-2.png" alt="Female" class="female-2-img absolute top-0 right-0"> -->
+    <img src="/images/doctor-3.png" alt="Female" class="doctor-3-img">
+    <form action="/result" method="POST">
+        <label>1. How old are you?</label><br>
+        <input type="radio" name="age" value="under40" required> Under 40 <br>
+        <input type="radio" name="age" value="40-45"> 40-45 <br>
+        <input type="radio" name="age" value="45plus"> 45+ <br><br>
+
+        <label>2. How regular are your periods?</label><br>
+        <input type="radio" name="periods" value="regular" required> Regular <br>
+        <input type="radio" name="periods" value="recently_irregular"> Recently irregular <br>
+        <input type="radio" name="periods" value="irregular_long_term"> Irregular for many years <br>
+        <input type="radio" name="periods" value="stopped"> Stopped for 12+ months <br><br>
+
+        <label>3. How would you describe your period flow?</label><br>
+        <input type="radio" name="flow" value="heavy" required> Heavy <br>
+        <input type="radio" name="flow" value="normal"> Normal <br>
+        <input type="radio" name="flow" value="light"> Light <br><br>
+
+        <label>4. Have you missed a period for 1+ months?</label><br>
+        <input type="radio" name="missed_period" value="yes" required> Yes <br>
+        <input type="radio" name="missed_period" value="no"> No <br><br>
+
+        <label>5. How has your weight changed?</label><br>
+        <input type="radio" name="weight" value="unexplained_gain" required> Unexplained weight gain <br>
+        <input type="radio" name="weight" value="gradual_gain"> Gradual weight gain <br>
+        <input type="radio" name="weight" value="rapid_gain"> Rapid weight gain <br>
+        <input type="radio" name="weight" value="weight_loss"> Unexplained weight loss <br><br>
+
+        <label>6. Do you experience frequent sugar cravings or difficulty managing blood sugar?</label><br>
+        <input type="radio" name="sugar_cravings" value="yes" required> Yes <br>
+        <input type="radio" name="sugar_cravings" value="no"> No <br><br>
+
+        <label>7. Do you have excessive facial/body hair (hirsutism)?</label><br>
+        <input type="radio" name="hair_growth" value="yes" required> Yes <br>
+        <input type="radio" name="hair_growth" value="no"> No <br><br>
+
+        <label>8. Have you been diagnosed with high androgen levels?</label><br>
+        <input type="radio" name="high_androgens" value="yes" required> Yes <br>
+        <input type="radio" name="high_androgens" value="no"> No <br><br>
+
+        <label>9. Do you have cystic acne or persistent breakouts?</label><br>
+        <input type="radio" name="acne" value="yes" required> Yes <br>
+        <input type="radio" name="acne" value="no"> No <br><br>
+
+        <label>10. Do you have thinning hair on your scalp or hair loss?</label><br>
+        <input type="radio" name="hair_loss" value="yes" required> Yes <br>
+        <input type="radio" name="hair_loss" value="no"> No <br><br>
+
+        <label>11. Do you experience vaginal dryness or discomfort during intercourse?</label><br>
+        <input type="radio" name="vaginal_dryness" value="yes" required> Yes <br>
+        <input type="radio" name="vaginal_dryness" value="no"> No <br><br>
+
+        <label>12. Do you often feel excessively tired or fatigued?</label><br>
+        <input type="radio" name="fatigue" value="yes" required> Yes <br>
+        <input type="radio" name="fatigue" value="no"> No <br><br>
+
+        <label>13. Do you feel cold more often than others (cold hands/feet, chills)?</label><br>
+        <input type="radio" name="cold_sensitivity" value="yes" required> Yes <br>
+        <input type="radio" name="cold_sensitivity" value="no"> No <br><br>
+
+        <label>14. Do you experience sudden hot flashes or excessive sweating?</label><br>
+        <input type="radio" name="hotflashes" value="yes" required> Yes <br>
+        <input type="radio" name="hotflashes" value="no"> No <br><br>
+
+        <label>15. Do you struggle with anxiety, depression, or brain fog?</label><br>
+        <input type="radio" name="mood" value="yes" required> Yes <br>
+        <input type="radio" name="mood" value="no"> No <br><br>
+
+        <label>16. Have you experienced nausea or morning sickness?</label><br>
+        <input type="radio" name="morning_sickness" value="yes" required> Yes <br>
+        <input type="radio" name="morning_sickness" value="no"> No <br><br>
+
+        <label>17. Are your breasts unusually tender or swollen?</label><br>
+        <input type="radio" name="tender_breasts" value="yes" required> Yes <br>
+        <input type="radio" name="tender_breasts" value="no"> No <br><br>
+
+        <label>18. Are you urinating more frequently than usual?</label><br>
+        <input type="radio" name="frequent_urination" value="yes" required> Yes <br>
+        <input type="radio" name="frequent_urination" value="no"> No <br><br>
+
+        <label>19. Do you have trouble sleeping or staying asleep?</label><br>
+        <input type="radio" name="sleep_issues" value="yes" required> Yes <br>
+        <input type="radio" name="sleep_issues" value="no"> No <br><br>
+
+        <label>20. Do you experience joint pain or bone weakness?</label><br>
+        <input type="radio" name="joint_pain" value="yes" required> Yes <br>
+        <input type="radio" name="joint_pain" value="no"> No <br><br>
+
+        <div class="submit-button-container">
+            <button type="submit">Submit</button>
+        </div>
+          
+    </form>
+</body>
+</html>
